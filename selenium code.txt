@@ -1,0 +1,185 @@
+System.out.println("date size : "+driverInstance.findElements(By.xpath("//span[(@class='day ng-binding ng-scope')]")).size());
+if(driverInstance.findElements(By.xpath("//span[(@class='day ng-binding ng-scope')]")).size() == 0){
+	driverInstance.findElement(By.xpath("//i[contains(@ng-click,'next()')]")).click();
+	Thread.sleep(3000);
+	driverInstance.findElement(By.xpath("//span[(@class='day ng-binding ng-scope')]")).click();
+	System.out.println("next : "+driverInstance.findElement(By.xpath("//i[contains(@ng-click,'next()')]")));
+}else {
+	driverInstance.findElement(By.xpath("//span[(@class='day ng-binding ng-scope')]")).click();
+	System.out.println("date : "+driverInstance.findElement(By.xpath("//span[(@class='day ng-binding ng-scope')]")));
+}
+-----------------------------------------------------
+@FindBy(xpath = "")
+	private WebElement availableNetwrokDate;
+
+	@FindBy(xpath = "")
+	private WebElement calenderNextMonthArrowBtn;
+
+	public void selcetFirstAvailableDate() {
+		if (availableNetwrokDate.isDisplayed()) {
+			availableNetwrokDate.click();
+
+		} else {
+			calenderNextMonthArrowBtn.click();
+			availableNetwrokDate.click();
+		}
+	}
+--------------------------------------------------------------
+/static WebElement availableNetwrokDate;
+
+
+	 //static WebElement calenderNextMonthArrowBtn;
+
+	public static void selcetFirstAvailableDate() {
+		if (availableNetwrokDate.isEnabled()) {
+			System.out.println("inside IF : selcetFirstAvailableDate");
+			availableNetwrokDate.click();
+---------------------------------------------------------------------
+act.sendKeys(Keys.chord(Keys.CONTROL,Keys.TAB)).perform();
+
+		} else {
+			System.out.println("inside ELSE : selcetFirstAvailableDate");
+			calenderNextMonthArrowBtn.click();
+			availableNetwrokDate.click();
+		}
+	}	
+availableNetwrokDate=driverInstance.findElement(By.xpath("//span[(@class='day ng-binding ng-scope')]"));
+calenderNextMonthArrowBtn=driverInstance.findElement(By.xpath("//i[contains(@ng-click,'next()')]"));
+
+
+selcetFirstAvailableDate();
+----------------------------------------------
+Actions test = new Actions(driverInstance);
+test.moveToElement(driverInstance.findElement(By.xpath("//section[@class='vsrv_internet_speed ng-scope']/div[3]//div[@class='vz-custplan-deskphone']//following-sibling::div[@class='quantity oneTalkQuentity']"))).click().build().perform();
+
+Thread.sleep(6000);
+Robot Onetalk1= new Robot();
+for(int i=0;i<1;i++)
+{
+	Onetalk1.keyPress(KeyEvent.VK_UP);	
+	Onetalk1.keyRelease(KeyEvent.VK_UP);	
+}
+Thread.sleep(8000);
+
+test.moveToElement(driverInstance.findElement(By.xpath("//section[@ng-controller='vsrvonetalkfeaturesController as vm']/div[6]//following-sibling::div[contains(@class,'quantity')]"))).click().build().perform();
+Thread.sleep(3000);
+Robot hunt= new Robot();
+for(int i=0;i<1;i++)
+{
+	hunt.keyPress(KeyEvent.VK_UP);	
+	hunt.keyRelease(KeyEvent.VK_UP);	
+}
+----------------------------------------------------
+String parentHandle = driverInstance.getWindowHandle();
+for (String handle : driverInstance.getWindowHandles()) {
+if (!handle.equals(parentHandle))
+{
+driverInstance.switchTo().window(handle);
+}
+}
+		
+driverInstance.findElement(By.className("close1")).click();
+driverInstance.switchTo().window(parentHandle);
+Thread.sleep(3000);
+----------------------------------------------------
+/*
+test.moveToElement(driverInstance.findElement(By.xpath("//section[@ng-controller='internetSpeedFPController']/div[2]//following-sibling::div[contains(@class,'quantity')]"))).click().build().perform();
+Thread.sleep(3000);
+Robot drop= new Robot();
+for(int i=0;i<1;i++)
+{
+drop.keyPress(KeyEvent.VK_UP);	
+drop.keyRelease(KeyEvent.VK_UP);	
+}
+test.moveToElement(driverInstance.findElement(By.xpath("//section[@ng-controller='internetSpeedFPController']/div[3]//following-sibling::div[contains(@class,'quantity')]"))).click().build().perform();
+Thread.sleep(3000);
+Robot drop2= new Robot();
+for(int i=0;i<1;i++)
+{
+drop2.keyPress(KeyEvent.VK_UP);	
+drop2.keyRelease(KeyEvent.VK_UP);	
+}
+test.moveToElement(driverInstance.findElement(By.xpath("//section[@ng-controller='internetSpeedFPController']/div[4]//following-sibling::div[contains(@class,'quantity')]"))).click().build().perform();
+Thread.sleep(4000);
+Robot drop3= new Robot();
+for(int i=0;i<1;i++)
+{
+drop3.keyPress(KeyEvent.VK_UP);	
+drop3.keyRelease(KeyEvent.VK_UP);	
+---------------------------------------------------
+int rowNum = Files_table.findElements(By.tagName("tr")).size();
+//int colNum = Files_table.findElements(By.tagName("td")).size();
+
+//for(int i=1; i<=rowNum; i++){
+	//if(Files_table.findElement(By.xpath("//tbody/tr["+ i +"]/th[1]")).getText().toString().equals("GIT_DOC")) {
+		Files_table.findElement(By.xpath("//tbody/tr[1]/td[4]/span/div")).click();
+		//}
+//System.out.print(Files_table.findElement(By.xpath("//table[@id='BooksAuthorsTable']/tbody/tr[" + i +"]/td[" + j + "]")).getText() + "\t"); 
+
+System.out.println("");
+----------------------------------------------------------------------------------------------------
+driverInstance.switchTo().defaultContent();
+System.out.println("frame size : "+driverInstance.findElements(By.id("vfFrameId")).size());
+Thread.sleep(10000);
+driverInstance.switchTo().frame(driverInstance.findElement(By.xpath("//iframe[contains(@id,'vfFrameId')]")));
+Thread.sleep(8000);
+--------------------------------------------------------------------------
+JavascriptExecutor js = (JavascriptExecutor)driverInstance;
+js.executeScript("arguments[0].click();", driverInstance.findElement(By.xpath("//li/a/span[text()='Update Account']")));
+Thread.sleep(10000);
+------------------------------------------------
+//JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+//js.executeScript("window.scrollBy(0,1000)");
+WebElement scroll = driverInstance.findElement(By.id("idstartdate"));
+scroll.sendKeys(Keys.PAGE_DOWN);
+-----------------------------------------------------------------------------------------
+List<WebElement> iframeElements = driverInstance.findElements(By.tagName("iframe"));
+System.out.println("The total number of iframes are " + iframeElements.size());
+
+WebElement iFrame= driverInstance.findElement(By.tagName("iframe"));
+driverInstance.switchTo().frame(iFrame);
+------------------------------------------------------------------------------------------------
+Actions actions1 = new Actions(driverInstance);
+actions1.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+Thread.sleep(2000);
+------------------------------------------------------------------
+JavascriptExecutor js = (JavascriptExecutor) driverInstance;
+js.executeScript("window.scrollBy(0,1000)");
+----------------------------------------------------------
+JavascriptExecutor js = (JavascriptExecutor) driver;
+WebElement Element = driver.findElement(By.linkText("Linux"));
+js.executeScript("arguments[0].scrollIntoView();", Element);
+------------------------------------------------------------------------
+JavascriptExecutor jsExecutor = (JavascriptExecutor)driverInstance;
+String NewTab = "window.open('https://test.salesforce.com');";
+jsExecutor.executeScript(NewTab);-----------
+------------------------------------------------------------------------------
+for (int second = 0;; second++) {
+	    	if (second >= 50) fail("timeout");
+	    	try { if (driver.findElement(By.name("check-availability")).isDisplayed()) break; } catch (Exception e) {}
+	    	Thread.sleep(1000);
+	    } 
+-----------------------------------------------------------------------------------------------------------
+private static void closeTabs(WebDriver driverInstance) throws InterruptedException {
+              driverInstance.switchTo().parentFrame();
+              List<WebElement> closeTabs = driverInstance.findElements(By.xpath(
+                           "//button[@class='slds-button slds-button_icon-x-small slds-button_icon-container' and contains(@title,'Close')]"));
+              if (closeTabs.size() != 0) {
+                     for (WebElement webElement : closeTabs) {
+                           webElement.click();
+                           Thread.sleep(2000);
+                     }
+              }
+       }
+=========================================================================================
+Method Call:
+componentValue = getCellValueX(inputWorkbook, module, excelRow, 5);
+Thread.sleep(Long.parseLong(componentValue));
+closeTabs(driverInstance);
+setTestCaseStatus("Passed");
+Thread.sleep(5000);
+================================================
+https://ucd.ebiz.verizon.com/VBM-UX/BOS_LCI/frameset.html
+https://ucd.ebiz.verizon.com/VBM-UX/BOS_Portal/frameset.html 
+
+
